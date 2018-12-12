@@ -4,11 +4,53 @@
              xmlns:local="clr-namespace:RiddleOfToday"
              x:Class="RiddleOfToday.MainPage">
 
-    <StackLayout>
-        <!-- Place new controls here -->
-    	<Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
-    </StackLayout>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                <ContentView Padding="0,40,0,40" VerticalOptions="FillAndExpand">
+                    
+                    <!--<Image Source="appLogo.png" VerticalOptions="FillAndExpand" HeightRequest="64"/>-->
+                    <!--<Label Font="Bold, 48"
+                           Text="DAGENS GÅTA"
+                           BackgroundColor="Transparent"/>-->
+                    
+                </ContentView>
+            </StackLayout>
+        </StackLayout>
+
+        <Image Source="logo800x200.png" Aspect="AspectFill"  HeightRequest="120"/>
+        <ScrollView Grid.Row="1">
+
+            <StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
+
+                <Button Margin="0,10,0,0"
+                        Text="Hämta dagens gåta" 
+                        Clicked="GetRiddleButton_Clicked"
+                        BackgroundColor="{StaticResource Primary}"
+                        TextColor="White"/>
+
+                <Label Font="Bold, 20" x:Name="RiddleQuestionLabel" />
+              
+                <Button Margin="0,10,0,0"
+                        Text="Se svaret" 
+                        Clicked="ShowAnswerButton_Clicked"
+                        BackgroundColor="{StaticResource Primary}"
+                        TextColor="White"/>
+ 
+                <Label Font="Bold, 20" x:Name="RiddleAnswerLabel" />
+
+                <Label x:Name="InfoLabel" />
+
+                <Label FontSize="12" x:Name="BottomInfo" VerticalOptions="EndAndExpand"/>
+
+
+            </StackLayout>
+        </ScrollView>
+    </Grid>
 
 </ContentPage>
